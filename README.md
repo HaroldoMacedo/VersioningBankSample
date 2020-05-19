@@ -1,4 +1,4 @@
-# versioning
+# Versioning
 Study for versioning proposal.
 
 # Goals
