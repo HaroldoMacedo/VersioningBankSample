@@ -50,7 +50,7 @@ System.out.println("--- GET NO VERSION!! ---");
    * 
    * @return
    */
-  @GetMapping(path = "/current-accounts", produces = "application/nbs.si.v1+json")
+  @GetMapping(path = "/current-accounts", produces = "application/vnd.si.v1+json")
   public @ResponseBody List<CurrentAccount_v1> accounts_v1() {
     CurrentAccount_v1 account = currentAccountAPI.getAccount_v1(1000L);
     if (account == null) {
@@ -67,7 +67,7 @@ System.out.println("GET V1 - " + account.toString());
    * 
    * @return
    */
-  @GetMapping(path = "/current-accounts", produces = "application/nbs.si.v2+json")
+  @GetMapping(path = "/current-accounts", produces = "application/vnd.si.v2+json")
   public @ResponseBody List<CurrentAccount_v2> accounts_v2() {
     CurrentAccount_v2 account = currentAccountAPI.getAccount_v2(2000L);
     if (account == null) {
@@ -85,7 +85,7 @@ System.out.println("GET V2 - " + account.toString());
    * @param id
    * @return
    */
-  @GetMapping(path = "/current-accounts/{id}", produces = "application/nbs.si.v1+json")
+  @GetMapping(path = "/current-accounts/{id}", produces = "application/vnd.si.v1+json")
   public ResponseEntity<CurrentAccount_v1> accountDetails(@PathVariable long id) {
     CurrentAccount_v1 account = currentAccountAPI.getAccount_v1(id);
     if (account == null)
@@ -101,7 +101,7 @@ System.out.println("GET id V1 - " + account.toString());
    * @param id
    * @return
    */
-  @GetMapping(path = "/current-accounts/{id}", produces = "application/nbs.si.v2+json")
+  @GetMapping(path = "/current-accounts/{id}", produces = "application/vnd.si.v2+json")
   public ResponseEntity<CurrentAccount_v2> accountDetails_v2(@PathVariable long id) {
     CurrentAccount_v2 account = currentAccountAPI.getAccount_v2(id);
     if (account == null)
@@ -118,7 +118,7 @@ System.out.println("GET id V2 - " + account.toString());
    * @param newAccount
    * @return
    */
-  @PostMapping(path = "/current-accounts", consumes = {"application/json", "application/nbs.si.v1+json"})
+  @PostMapping(path = "/current-accounts", consumes = {"application/json", "application/vnd.si.v1+json"})
   @ResponseStatus(HttpStatus.CREATED) // 201
   public ResponseEntity<Void> registerAccount_v1(@RequestBody CurrentAccount_v1 newAccount) {
 System.out.println("POST V1 - " + newAccount.toString());    
@@ -133,7 +133,7 @@ System.out.println("POST V1 - " + newAccount.toString());
    * @param newAccount
    * @return
    */
-  @PostMapping(path = "/current-accounts", consumes = "application/nbs.si.v2+json")
+  @PostMapping(path = "/current-accounts", consumes = "application/vnd.si.v2+json")
   @ResponseStatus(HttpStatus.CREATED) // 201
   public ResponseEntity<Void> registerAccount_v2(@RequestBody CurrentAccount_v2 newAccount) {
 System.out.println("POST V2 - " + newAccount.toString());    
@@ -156,4 +156,11 @@ System.out.println("POST V2 - " + newAccount.toString());
     // HttpServletResponse
     return ResponseEntity.created(location).build();
   }
+  
+	@GetMapping(path = "/alo" )
+	public @ResponseBody String aloMundo() {
+		System.out.println("Alo Mundo!");
+		return "Alo Mundo!";
+	}
+  
 }

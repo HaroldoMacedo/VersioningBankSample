@@ -30,10 +30,10 @@ paths:
         description: "Updated employee object"
         required: true
         content:
-          application/nbs.nem.v1+json:
+          application/vnd.nem.v1+json:
             schema:
               $ref: "#/components/schemas/Employee_v1"
-          application/nbs.nem.v2+json:
+          application/vnd.nem.v2+json:
             schema:
               $ref: "#/components/schemas/Employee_v2"
       responses:
@@ -65,16 +65,16 @@ paths:
         '200':
           description: "successful operation"
           content:
-            application/nbs.nem.v1+json:
+            application/vnd.nem.v1+json:
               schema:
                 $ref: "#/components/schemas/Employee_v1"
-            application/nbs.nem.v2+json:
+            application/vnd.nem.v2+json:
               schema:
                 $ref: "#/components/schemas/Employee_v2"
-            application/nbs.nem.v1+xml:
+            application/vnd.nem.v1+xml:
               schema:
                 $ref: "#/components/schemas/Employee_v1"
-            application/nbs.nem.v2+xml:
+            application/vnd.nem.v2+xml:
               schema:
                 $ref: "#/components/schemas/Employee_v2"
         '400':

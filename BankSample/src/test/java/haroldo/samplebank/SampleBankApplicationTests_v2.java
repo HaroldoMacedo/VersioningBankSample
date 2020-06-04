@@ -26,11 +26,11 @@ class SampleBankApplicationTests_v2 {
   private RestTemplate restTemplate = new RestTemplate();
 
   private SampleBankApplicationTests_v2() {
-    MediaType mt = new MediaType("application", "nbs.si.v2+json");
+    MediaType mt = new MediaType("application", "vnd.si.v2+json");
     headers.setContentType(mt);
     headers.setAccept(Arrays.asList(mt));
     
-    MediaType mtu = new MediaType("application", "nbs.si.v+json");
+    MediaType mtu = new MediaType("application", "vnd.si.v+json");
     unsupportedHeaders.setContentType(mtu);
     unsupportedHeaders.setAccept(Arrays.asList(mtu));
   }
